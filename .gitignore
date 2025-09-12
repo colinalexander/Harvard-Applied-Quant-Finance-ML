@@ -18,3 +18,7 @@ data/interim/*
 data/processed/*
 !data/.gitkeep
 
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
