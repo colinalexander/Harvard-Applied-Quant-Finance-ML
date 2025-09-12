@@ -1,7 +1,7 @@
 # Harvard Applied Quantitative Finance & Machine Learning (Fall 2025)
 
 This repository contains my **study notes, Jupyter notebooks, and supporting code** for  
-**CSCI E-278: Applied Quantitative Finance and Machine Learning**, offered through Harvard Extension School in Fall 2025.
+**[CSCI E-278: Applied Quantitative Finance and Machine Learning](https://coursebrowser.dce.harvard.edu/course/applied-quantitative-finance-and-machine-learning-2/)**, offered through Harvard Extension School in Fall 2025.
 
 ---
 
