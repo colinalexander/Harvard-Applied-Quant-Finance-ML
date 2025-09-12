@@ -1,0 +1,42 @@
+[project]
+name = "harvard-aqfml"
+version = "0.1.0"
+description = "Study notes, Jupyter notebooks, and supporting code for Harvard's Applied Quantitative Finance and Machine Learning (CSCI E-278). This project provides organized lecture notes in Markdown, reproducible Python notebooks with code examples, and reusable helper functions for time series analysis, portfolio modeling, and machine learning in quantitative finance."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "arch>=7.2.0",
+    "ipykernel>=6.30.1",
+    "ipywidgets>=8.1.7",
+    "jupyter>=1.1.1",
+    "jupyterlab>=4.4.7",
+    "matplotlib>=3.10.6",
+    "mypy>=1.18.1",
+    "nbclient>=0.10.2",
+    "nbformat>=5.10.4",
+    "nbstripout>=0.8.1",
+    "notebook>=7.4.5",
+    "numpy>=2.3.3",
+    "pandas>=2.3.2",
+    "pandas-datareader>=0.10.0",
+    "plotly>=6.3.0",
+    "pre-commit>=4.3.0",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.13.0",
+    "scikit-learn>=1.7.2",
+    "scipy>=1.16.2",
+    "seaborn>=0.13.2",
+    "statsmodels>=0.14.5",
+    "xgboost>=3.0.5",
+    "yfinance>=0.2.65",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+lint.select = ["E", "F", "I", "W", "B", "UP"]
+lint.ignore = ["E203"]  # if you like black-style slicing
+
+[tool.ruff.format]
+quote-style = "double"
