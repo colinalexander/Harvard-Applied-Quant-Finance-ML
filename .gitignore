@@ -2,20 +2,24 @@
 .env
 .venv/
 __pycache__/
+*.pyc
 uv.lock
 *.egg-info/
 dist/
 build/
 
 # notebooks
+notebooks/
 .ipynb_checkpoints/
 .notebooks_tmp/
 **/*.nbconvert.ipynb
+*.ipynb
+!notebooks/aqfml-final-project.ipynb
 
 # data (keep structure, ignore contents)
 data/raw/*
 data/interim/*
-data/processed/*
+!data/processed/*
 !data/.gitkeep
 
 # macOS
