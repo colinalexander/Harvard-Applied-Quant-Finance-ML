@@ -1,95 +1,45 @@
+````markdown
 # Harvard Applied Quantitative Finance & Machine Learning (Fall 2025)
 
-This repository contains **coursework, research notebooks, and final project** for
-**[CSCI E-278: Applied Quantitative Finance and Machine Learning](https://coursebrowser.dce.harvard.edu/course/applied-quantitative-finance-and-machine-learning-2/)**, offered through Harvard Extension School in Fall 2025.
+This repository contains my **final project** and supporting code for  
+**[CSCI E-278: Applied Quantitative Finance and Machine Learning](https://coursebrowser.dce.harvard.edu/course/applied-quantitative-finance-and-machine-learning-2/)** (Harvard Extension School, Fall 2025).
 
-The centerpiece of this repository is the **final applied research project**, which studies how **data scale, model choice, and portfolio implementation interact in practice** when deploying machine learning signals in equity factor portfolios.
+The repository is intentionally **final-project-centric** (with a small amount of supporting scaffolding). All exploratory material and non-essential artifacts are excluded to keep the repo focused, reviewable, and reproducible.
 
 ---
 
-## Final Project (Primary Focus)
+## Final Project
 
 ### **Scaling Machine Learning Signals for Equity Factor Portfolios**
-
 **An applied study using 35 years of daily Fama–French 100 portfolios**
 
-**Location:**
+**Primary notebook:**  
+- [`notebooks/aqfml-final-project.ipynb`](notebooks/aqfml-final-project.ipynb)
 
-* Notebook / report: `notebooks/final_project/`
-* Supporting code: `src/harvard/`
+**Key supporting code (reusable pipeline):**  
+- `src/` (feature construction, walk-forward training, signal diagnostics, portfolio implementation, plotting)
+
+**Key reproducibility artifacts:**  
+- `data/processed/` (analysis-ready datasets used by the notebook)
+- `results/` (saved intermediate outputs used in appendices / diagnostics)
 
 ### Project Summary
 
-This final project examines whether **richer data environments**—specifically **daily frequency and expanded cross-sections**—meaningfully change the behavior and usability of machine-learning signals in equity factor portfolios.
+This case study examines how increasing data richness affects the behavior and usability of machine-learning signals in equity factor portfolios. Using **Fama–French 100 Size × Book-to-Market portfolios** at **daily frequency** over ~35 years, it compares linear and nonlinear models under a **leakage-aware walk-forward framework**, evaluating:
 
-Using **35 years of daily returns** on the **Fama–French 100 Size × Book-to-Market portfolios**, the analysis compares **linear and nonlinear models** under a **strictly leakage-aware walk-forward framework**, evaluating both:
-
-* **Signal quality** via cross-sectional ranking metrics (Information Coefficient), and
-* **Economic viability** via long–short portfolio implementations with realistic turnover and transaction costs.
-
-### Key Research Questions
-
-* Does scaling from monthly to daily data improve signal stability?
-* Do nonlinear models materially outperform linear baselines once evaluated fairly?
-* How much do portfolio construction and transaction costs change conclusions drawn from predictive metrics alone?
+- **Cross-sectional ranking quality** via the Information Coefficient (Spearman rank correlation)
+- **Economic outcomes** via long–short portfolio implementations with turnover and transaction costs
 
 ### Models Evaluated
 
-* **Ridge Regression** (linear baseline)
-* **Random Forest**
-* **Shallow Neural Network (MLP)**
-* **Boosted Trees (XGBoost)** – robustness extension
+- **Ridge Regression** (linear baseline)
+- **Random Forest**
+- **Shallow Neural Network (MLP)**
+- **Boosted Trees (XGBoost)** (robustness extension)
 
-All models are:
+### Core Takeaway
 
-* Trained using **rolling walk-forward cross-validation** with purge buffers
-* Evaluated on identical out-of-sample windows
-* Compared using **ranking metrics first**, then **portfolio outcomes**
-
-### Core Findings
-
-* **Daily Information Coefficients are modest (≈0.5–1.0%) but consistently positive**, indicating economically meaningful yet noisy cross-sectional structure.
-* **Nonlinear models capture incremental interaction effects**, but **do not dominate linear baselines** once evaluated under the same protocol.
-* **Portfolio implementation is decisive**: models with similar ranking skill diverge sharply once turnover and transaction costs are applied.
-* The **linear Ridge baseline** combines moderate signal strength with **lower turnover**, resulting in more robust net outcomes than more flexible models.
-
-### Central Takeaway
-
-> Improving predictive metrics, adding data, or increasing model flexibility in isolation does not guarantee usable results.
-> **Model choice, data scale, and portfolio implementation must be considered jointly.**
-
-This framing reflects a **practitioner-oriented perspective**, prioritizing deployability and robustness over raw in-sample performance.
-
----
-
-## Course Overview
-
-The course explores the application of **quantitative finance and modern machine learning techniques** to investment management, portfolio construction, and risk modeling. It is structured into four major modules:
-
-1. **Data Management**
-
-   * Visualization, preprocessing, and transformation of financial data
-   * Data curation and cleaning
-   * Temporal structure of financial time series
-   * Feature engineering for predictive modeling
-
-2. **Quantitative Investment Strategies**
-
-   * Backtesting methodologies
-   * Statistical arbitrage and mean reversion strategies
-   * Momentum and trend-following approaches
-
-3. **Portfolio Management**
-
-   * Asset allocation and portfolio construction
-   * Portfolio optimization and rebalancing
-   * Reinforcement learning for dynamic allocation
-
-4. **Risk Management**
-
-   * Portfolio, trading, and factor risk exposure
-   * Hedging techniques
-   * Value-at-Risk (VaR) and volatility modeling
+Improving predictive metrics, adding data, or increasing model flexibility **in isolation** does not guarantee deployable results. **Model choice, data scale, and portfolio implementation must be considered jointly**, because turnover, stability, and transaction costs materially change conclusions.
 
 ---
 
@@ -98,34 +48,38 @@ The course explores the application of **quantitative finance and modern machine
 ```text
 Harvard-Applied-Quant-Finance-ML/
 ├── README.md
-├── data/
-│   ├── raw/                # Ignored (source data)
-│   ├── interim/            # Ignored (intermediate artifacts)
-│   ├── processed/          # Versioned, analysis-ready datasets
-│   └── 100_Portfolios_10x10_Daily.CSV
-├── notebooks/
-│   └── aqfml-final-project.ipynb   # Final project notebook
-├── src/
-│   ├── models/             # Model implementations (Ridge, RF, NN)
-│   ├── pipeline.py         # Walk-forward training orchestration
-│   ├── signals.py          # Ranking & IC diagnostics
-│   ├── portfolio.py        # Portfolio construction & costs
-│   └── plots.py            # Figures used in analysis
-├── results/                # Generated outputs used in the report
-├── docs/                   # Course notes and reference material
+├── LICENSE
 ├── pyproject.toml
 ├── uv.lock
-└── LICENSE
+├── data/
+│   ├── raw/                 # Ignored (source inputs kept local)
+│   ├── interim/             # Ignored (intermediate artifacts kept local)
+│   └── processed/           # Versioned, analysis-ready datasets
+├── notebooks/
+│   ├── aqfml-final-project.ipynb
+│   └── static/              # Figures/images used by the notebook
+├── results/                 # Generated outputs used in appendices/diagnostics
+├── src/                     # Reusable code (features, models, walk-forward, portfolio, plots)
+├── scripts/                 # Optional utilities
+└── tests/                   # Optional tests
+````
+
+> **Notes:** Course notes/slides are kept locally (not versioned) to keep the repository focused on the final project deliverable.
 
 ---
 
-### Notes on Scope
+## Data Versioning & Reproducibility
 
-This repository is intentionally scoped around the **final applied project**.
+This repository is structured to be reproducible without committing bulky or redundant artifacts:
 
-Only the final project notebook is versioned in Git; exploratory and intermediate
-notebooks used during development are excluded to keep the repository focused,
-reviewable, and reproducible.
+* **Raw data (`data/raw/`)** and **intermediate artifacts (`data/interim/`)** are intentionally not versioned
+* **Processed datasets (`data/processed/`) are versioned** and represent:
+
+  * fully cleaned
+  * leakage-safe
+  * analysis-ready inputs used by the final notebook
+
+This design allows results and figures to be reproduced directly from the repository without re-downloading or re-processing raw inputs.
 
 ---
 
@@ -142,29 +96,18 @@ uv run jupyter lab
 
 ---
 
-## Development & Reproducibility Notes
+## Development Notes
 
-* **Notebook outputs are stripped** before commit using `nbstripout`
-* Walk-forward pipelines are implemented in reusable modules to avoid copy-paste logic
-* All preprocessing and scaling steps are recomputed **within each training window** to prevent leakage
-* Portfolio simulations explicitly track **turnover and transaction costs**
-
----
-
-## Core Dependencies
-
-* Python 3.13+
-* NumPy, Pandas, SciPy
-* scikit-learn, statsmodels, arch
-* Matplotlib, Plotly
-* Jupyter / JupyterLab
-* Ruff, mypy, pytest, pre-commit
+* Pre-commit hooks are used for formatting/linting Python code.
+* Notebook linting is intentionally excluded (notebooks are treated as deliverables, not library modules).
+* The final notebook is designed to read top-to-bottom as an applied workflow:
+  data → features → walk-forward training → signal diagnostics → portfolio implementation → cost sensitivity.
 
 ---
 
 ## Term
 
-**Fall 2025 – Harvard Extension School**
+**Fall 2025 — Harvard Extension School**
 **CSCI E-278: Applied Quantitative Finance and Machine Learning**
 
 ---
