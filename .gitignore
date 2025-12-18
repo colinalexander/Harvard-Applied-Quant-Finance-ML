@@ -12,6 +12,7 @@ build/
 # notebooks
 notebooks/*
 !notebooks/aqfml-final-project.ipynb
+!notebooks/aqfml-final-project-no-links.ipynb
 !notebooks/static/
 notebooks/.ipynb_checkpoints/
 .notebooks_tmp/

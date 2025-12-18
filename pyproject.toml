@@ -21,6 +21,7 @@ dependencies = [
     "pandas-datareader>=0.10.0",
     "plotly>=6.3.0",
     "pre-commit>=4.3.0",
+    "pyarrow>=22.0.0",
     "pytest>=8.4.2",
     "pytest-cov>=7.0.0",
     "ruff>=0.13.0",
