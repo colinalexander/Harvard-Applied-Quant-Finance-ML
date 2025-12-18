@@ -8,8 +8,6 @@ uv.lock
 dist/
 build/
 
-# docs
-docs/
 
 # notebooks
 notebooks/*
@@ -20,6 +18,8 @@ notebooks/.ipynb_checkpoints/
 **/*.nbconvert.ipynb
 *.ipynb
 
+# Internal notes / slides (not versioned)
+notes/
 
 # data (keep structure, ignore contents)
 data/raw/*
