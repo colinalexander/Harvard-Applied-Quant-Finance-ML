@@ -8,13 +8,17 @@ uv.lock
 dist/
 build/
 
+# docs
+docs/
+
 # notebooks
-notebooks/
-.ipynb_checkpoints/
-.notebooks_tmp/
+notebooks/*
+!notebooks/aqfml-final-project.ipynb
+notebooks/.ipynb_checkpoints/
+notebooks/.notebooks_tmp/
 **/*.nbconvert.ipynb
 *.ipynb
-!notebooks/aqfml-final-project.ipynb
+
 
 # data (keep structure, ignore contents)
 data/raw/*
