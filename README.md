@@ -13,11 +13,15 @@ The repository is intentionally **final-project-centric** (with a small amount o
 ### **Scaling Machine Learning Signals for Equity Factor Portfolios**
 **An applied study using 35 years of daily Fama–French 100 portfolios**
 
-**Primary notebook:**  
-- [`notebooks/aqfml-final-project.ipynb`](notebooks/aqfml-final-project.ipynb)
+**Recommended (renders all figures reliably):**  
+- [`notebooks/aqfml-final-project.html`](notebooks/aqfml-final-project.html)
 
-**Key supporting code (reusable pipeline):**  
-- `src/` (feature construction, walk-forward training, signal diagnostics, portfolio implementation, plotting)
+**Executable notebook (code + narrative):**  
+- [`notebooks/aqfml-final-project.ipynb`](notebooks/aqfml-final-project.ipynb)
+  - Note: GitHub’s notebook preview may not display all embedded figures; use the HTML report for the complete visual render.
+
+**Supporting code:**  
+- `src/`
 
 **Key reproducibility artifacts:**  
 - `data/processed/` (analysis-ready datasets used by the notebook)
