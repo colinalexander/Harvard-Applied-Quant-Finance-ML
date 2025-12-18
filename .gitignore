@@ -14,8 +14,9 @@ docs/
 # notebooks
 notebooks/*
 !notebooks/aqfml-final-project.ipynb
+!notebooks/static/
 notebooks/.ipynb_checkpoints/
-notebooks/.notebooks_tmp/
+.notebooks_tmp/
 **/*.nbconvert.ipynb
 *.ipynb
 
