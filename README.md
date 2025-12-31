@@ -12,6 +12,7 @@ The repository is intentionally **final-project-centric** (with a small amount o
 
 ### **Scaling Machine Learning Signals for Equity Factor Portfolios**
 **An applied study using 35 years of daily Fama–French 100 portfolios**
+- https://colinalexander.github.io/Harvard-Applied-Quant-Finance-ML/
 
 **Recommended (renders all figures reliably):**  
 - [`notebooks/aqfml-final-project.html`](notebooks/aqfml-final-project.html)
